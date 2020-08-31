@@ -8,7 +8,6 @@ let package = Package(
         .executable(name: "DataStructuresAndAlgorithms", targets: ["DataStructuresAndAlgorithms"])
     ],
     targets: [
-        .target(name: "DataStructuresAndAlgorithms"),
-        .testTarget(name: "DataStructuresAndAlgorithmsTests", dependencies: ["DataStructuresAndAlgorithms"])
+        .target(name: "DataStructuresAndAlgorithms")
     ]
 )
