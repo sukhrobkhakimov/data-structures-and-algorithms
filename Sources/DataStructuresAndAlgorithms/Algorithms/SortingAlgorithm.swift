@@ -72,4 +72,48 @@ struct SortingAlgorithm {
         }
         return n
     }
+
+    // In computer science, merge sort is an efficient, general-purpose, comparison-based sorting algorithm.
+    // Most implementations produce a stable sort, which means that the order of equal elements is the same in the
+    // input and output. Merge sort is a divide and conquer algorithm that was invented by John von Neumann in 1945.
+    // https://en.wikipedia.org/wiki/Merge_sort
+    //
+    // Worst complexity: nlogn
+    // Average complexity: nlogn
+    // Best complexity: nlogn
+    // Space complexity: n (a.k.a memory usage)
+    func mergeSort(_ n: [Int]) -> [Int] {
+        let c = n.count
+        if c <= 1 { return n }
+        let m = c / 2
+        var n1 = Array(n[0..<m])
+        var n2 = Array(n[m..<c])
+        n1 = mergeSort(n1)
+        n2 = mergeSort(n2)
+        return merge(n1: n1, n2: n2)
+    }
+
+    private func merge(n1: [Int], n2: [Int]) -> [Int] {
+        var n1 = n1
+        var n2 = n2
+        var a: [Int] = []
+        while !n1.isEmpty && !n2.isEmpty {
+            if n1[0] > n2[0] {
+                a.append(n2[0])
+                n2.remove(at: 0)
+            } else {
+                a.append(n1[0])
+                n1.remove(at: 0)
+            }
+        }
+        while !n1.isEmpty {
+            a.append(n1[0])
+            n1.remove(at: 0)
+        }
+        while !n2.isEmpty {
+            a.append(n2[0])
+            n2.remove(at: 0)
+        }
+        return a
+    }
 }
