@@ -47,4 +47,29 @@ struct SortingAlgorithm {
         }
         return n
     }
+
+    // Bubble sort, sometimes referred to as sinking sort, is a simple sorting algorithm that repeatedly steps
+    // through the list, compares adjacent elements and swaps them if they are in the wrong order. The pass through
+    // the list is repeated until the list is sorted.
+    // https://en.wikipedia.org/wiki/Bubble_sort
+    //
+    // Worst complexity: n^2
+    // Average complexity: n^2
+    // Best complexity: n
+    // Space complexity: 1 (a.k.a memory usage)
+    func bubbleSort(_ n: [Int]) -> [Int] {
+        var n = n
+        var i = n.count - 1
+        while i > 0 {
+            for j in 0..<i {
+                if n[j] > n[j + 1] {
+                    let v = n[j]
+                    n[j] = n[j + 1]
+                    n[j + 1] = v
+                }
+            }
+            i -= 1
+        }
+        return n
+    }
 }
