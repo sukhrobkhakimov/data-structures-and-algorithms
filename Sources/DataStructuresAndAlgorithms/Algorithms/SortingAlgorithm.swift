@@ -23,4 +23,28 @@ struct SortingAlgorithm {
         }
         return n
     }
+
+    // Insertion sort is a simple sorting algorithm that builds the final sorted array one item at a time.
+    // It is much less efficient on large lists than more advanced algorithms such as quicksort, heapsort, or
+    // merge sort.
+    // https://en.wikipedia.org/wiki/Insertion_sort
+    //
+    // Worst complexity: n^2
+    // Average complexity: n^2
+    // Best complexity: n
+    // Space complexity: 1 (a.k.a memory usage)
+    func insertionSort(_ n: [Int]) -> [Int] {
+        var n = n
+        let l = n.count - 1
+        for i in n.indices where i < l {
+            var p = i
+            while n[p] > n[p + 1] {
+                let v = n[p]
+                n[p] = n[p + 1]
+                n[p + 1] = v
+                if p > 0 { p -= 1 }
+            }
+        }
+        return n
+    }
 }
