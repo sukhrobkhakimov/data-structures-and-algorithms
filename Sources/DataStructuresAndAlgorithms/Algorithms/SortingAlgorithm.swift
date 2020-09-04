@@ -116,4 +116,45 @@ struct SortingAlgorithm {
         }
         return a
     }
+
+    // Quicksort is an efficient sorting algorithm. Developed by British computer scientist Tony Hoare in 1959 and
+    // published in 1961, it is still a commonly used algorithm for sorting. When implemented well, it can be about
+    // two or three times faster than its main competitors, merge sort and heapsort.
+    // https://en.wikipedia.org/wiki/Quicksort
+    //
+    // Worst complexity: n^2
+    // Average complexity: nlogn
+    // Best complexity: nlogn
+    // Space complexity: logn (a.k.a memory usage)
+    func quickSort(_ n: [Int]) -> [Int] {
+        if n.count <= 1 { return n }
+        var n = n
+        _quickSort(&n, l: 0, h: n.count - 1)
+        return n
+    }
+
+    private func _quickSort(_ n: inout [Int], l: Int, h: Int) {
+        if l < h {
+            let p = partition(&n, l: l, h: h)
+            _quickSort(&n, l: l, h: p - 1)
+            _quickSort(&n, l: p + 1, h: h)
+        }
+    }
+
+    private func partition(_ n: inout [Int], l: Int, h: Int) -> Int {
+        let p = n[h]
+        var i = l - 1
+        for j in l..<h {
+            if n[j] <= p {
+                i += 1
+                let v = n[i]
+                n[i] = n[j]
+                n[j] = v
+            }
+        }
+        let v = n[i + 1]
+        n[i + 1] = n[h]
+        n[h] = v
+        return i + 1
+    }
 }
