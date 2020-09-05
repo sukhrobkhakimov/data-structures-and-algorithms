@@ -33,7 +33,7 @@ struct SortingAlgorithm {
     // Average complexity: n^2
     // Best complexity: n
     // Space complexity: 1 (a.k.a memory usage)
-    func insertionSort(_ n: [Int]) -> [Int] {
+    func insertionSort<T: Comparable>(_ n: [T]) -> [T] {
         var n = n
         let l = n.count - 1
         for i in n.indices where i < l {
@@ -57,7 +57,7 @@ struct SortingAlgorithm {
     // Average complexity: n^2
     // Best complexity: n
     // Space complexity: 1 (a.k.a memory usage)
-    func bubbleSort(_ n: [Int]) -> [Int] {
+    func bubbleSort<T: Comparable>(_ n: [T]) -> [T] {
         var n = n
         var i = n.count - 1
         while i > 0 {
@@ -82,7 +82,7 @@ struct SortingAlgorithm {
     // Average complexity: nlogn
     // Best complexity: nlogn
     // Space complexity: n (a.k.a memory usage)
-    func mergeSort(_ n: [Int]) -> [Int] {
+    func mergeSort<T: Comparable>(_ n: [T]) -> [T] {
         let c = n.count
         if c <= 1 { return n }
         let m = c / 2
@@ -93,28 +93,28 @@ struct SortingAlgorithm {
         return merge(n1: n1, n2: n2)
     }
 
-    private func merge(n1: [Int], n2: [Int]) -> [Int] {
+    private func merge<T: Comparable>(n1: [T], n2: [T]) -> [T] {
         var n1 = n1
         var n2 = n2
-        var a: [Int] = []
+        var n: [T] = []
         while !n1.isEmpty && !n2.isEmpty {
             if n1[0] > n2[0] {
-                a.append(n2[0])
+                n.append(n2[0])
                 n2.remove(at: 0)
             } else {
-                a.append(n1[0])
+                n.append(n1[0])
                 n1.remove(at: 0)
             }
         }
         while !n1.isEmpty {
-            a.append(n1[0])
+            n.append(n1[0])
             n1.remove(at: 0)
         }
         while !n2.isEmpty {
-            a.append(n2[0])
+            n.append(n2[0])
             n2.remove(at: 0)
         }
-        return a
+        return n
     }
 
     // Quicksort is an efficient sorting algorithm. Developed by British computer scientist Tony Hoare in 1959 and
@@ -126,14 +126,14 @@ struct SortingAlgorithm {
     // Average complexity: nlogn
     // Best complexity: nlogn
     // Space complexity: logn (a.k.a memory usage)
-    func quickSort(_ n: [Int]) -> [Int] {
+    func quickSort<T: Comparable>(_ n: [T]) -> [T] {
         if n.count <= 1 { return n }
         var n = n
         _quickSort(&n, l: 0, h: n.count - 1)
         return n
     }
 
-    private func _quickSort(_ n: inout [Int], l: Int, h: Int) {
+    private func _quickSort<T: Comparable>(_ n: inout [T], l: Int, h: Int) {
         if l < h {
             let p = partition(&n, l: l, h: h)
             _quickSort(&n, l: l, h: p - 1)
@@ -141,7 +141,7 @@ struct SortingAlgorithm {
         }
     }
 
-    private func partition(_ n: inout [Int], l: Int, h: Int) -> Int {
+    private func partition<T: Comparable>(_ n: inout [T], l: Int, h: Int) -> Int {
         let p = n[h]
         var i = l - 1
         for j in l..<h {
