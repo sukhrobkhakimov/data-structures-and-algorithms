@@ -61,8 +61,10 @@ struct SortingAlgorithm {
     // Best complexity: n
     // Space complexity: 1 (a.k.a memory usage)
     func bubbleSort<T: Comparable>(_ n: [T]) -> [T] {
+        let c = n.count
+        if c <= 1 { return n }
         var n = n
-        var i = n.count - 1
+        var i = c - 1
         while i > 0 {
             for j in 0..<i {
                 if n[j] > n[j + 1] {
