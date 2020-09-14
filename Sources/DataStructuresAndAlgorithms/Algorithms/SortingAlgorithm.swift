@@ -9,6 +9,7 @@ struct SortingAlgorithm {
     // Best complexity: n^2
     // Space complexity: 1 (a.k.a memory usage)
     func selectionSort<T: Comparable>(_ n: [T]) -> [T] {
+        if n.count <= 1 { return n }
         var n = n
         for i in n.indices {
             var m = i
