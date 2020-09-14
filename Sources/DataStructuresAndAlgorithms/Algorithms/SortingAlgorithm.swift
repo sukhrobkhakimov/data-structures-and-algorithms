@@ -4,10 +4,10 @@ struct SortingAlgorithm {
     // insertion sort.
     // https://en.wikipedia.org/wiki/Selection_sort
     //
-    // Worst complexity: n^2
-    // Average complexity: n^2
-    // Best complexity: n^2
-    // Space complexity: 1 (a.k.a memory usage)
+    // Worst complexity: O(n^2)
+    // Average complexity: O(n^2)
+    // Best complexity: O(n^2)
+    // Space complexity: O(1) (a.k.a memory usage)
     func selectionSort<T: Comparable>(_ n: [T]) -> [T] {
         if n.count <= 1 { return n }
         var n = n
@@ -30,10 +30,10 @@ struct SortingAlgorithm {
     // merge sort.
     // https://en.wikipedia.org/wiki/Insertion_sort
     //
-    // Worst complexity: n^2
-    // Average complexity: n^2
-    // Best complexity: n
-    // Space complexity: 1 (a.k.a memory usage)
+    // Worst complexity: O(n^2)
+    // Average complexity: O(n^2)
+    // Best complexity: O(n)
+    // Space complexity: O(1) (a.k.a memory usage)
     func insertionSort<T: Comparable>(_ n: [T]) -> [T] {
         let c = n.count
         if c <= 1 { return n }
@@ -56,10 +56,10 @@ struct SortingAlgorithm {
     // the list is repeated until the list is sorted.
     // https://en.wikipedia.org/wiki/Bubble_sort
     //
-    // Worst complexity: n^2
-    // Average complexity: n^2
-    // Best complexity: n
-    // Space complexity: 1 (a.k.a memory usage)
+    // Worst complexity: O(n^2)
+    // Average complexity: O(n^2)
+    // Best complexity: O(n)
+    // Space complexity: O(1) (a.k.a memory usage)
     func bubbleSort<T: Comparable>(_ n: [T]) -> [T] {
         let c = n.count
         if c <= 1 { return n }
@@ -83,10 +83,10 @@ struct SortingAlgorithm {
     // input and output. Merge sort is a divide and conquer algorithm that was invented by John von Neumann in 1945.
     // https://en.wikipedia.org/wiki/Merge_sort
     //
-    // Worst complexity: nlogn
-    // Average complexity: nlogn
-    // Best complexity: nlogn
-    // Space complexity: n (a.k.a memory usage)
+    // Worst complexity: O(nlogn)
+    // Average complexity: O(nlogn)
+    // Best complexity: O(nlogn)
+    // Space complexity: O(n) (a.k.a memory usage)
     func mergeSort<T: Comparable>(_ n: [T]) -> [T] {
         let c = n.count
         if c <= 1 { return n }
@@ -127,10 +127,10 @@ struct SortingAlgorithm {
     // two or three times faster than its main competitors, merge sort and heapsort.
     // https://en.wikipedia.org/wiki/Quicksort
     //
-    // Worst complexity: n^2
-    // Average complexity: nlogn
-    // Best complexity: nlogn
-    // Space complexity: logn (a.k.a memory usage)
+    // Worst complexity: O(n^2)
+    // Average complexity: O(nlogn)
+    // Best complexity: O(nlogn)
+    // Space complexity: O(logn) (a.k.a memory usage)
     func quickSort<T: Comparable>(_ n: [T]) -> [T] {
         let c = n.count
         if c <= 1 { return n }
