@@ -35,8 +35,10 @@ struct SortingAlgorithm {
     // Best complexity: n
     // Space complexity: 1 (a.k.a memory usage)
     func insertionSort<T: Comparable>(_ n: [T]) -> [T] {
+        let c = n.count
+        if c <= 1 { return n }
         var n = n
-        let l = n.count - 1
+        let l = c - 1
         for i in n.indices where i < l {
             var p = i
             while n[p] > n[p + 1] {
