@@ -132,9 +132,10 @@ struct SortingAlgorithm {
     // Best complexity: nlogn
     // Space complexity: logn (a.k.a memory usage)
     func quickSort<T: Comparable>(_ n: [T]) -> [T] {
-        if n.count <= 1 { return n }
+        let c = n.count
+        if c <= 1 { return n }
         var n = n
-        _quickSort(&n, l: 0, h: n.count - 1)
+        _quickSort(&n, l: 0, h: c - 1)
         return n
     }
 
