@@ -11,7 +11,7 @@ struct SearchingAlgorithm {
     // Average complexity: O(logn)
     // Best complexity: O(1)
     // Space complexity: O(1) (a.k.a memory usage)
-    func binarySearch<T: Comparable>(_ x: T, n: [T]) -> Int? {
+    func binarySearch<T: Comparable>(_ x: T, _ n: [T]) -> Int? {
         var l = 0
         var h = n.count - 1
         while l <= h {

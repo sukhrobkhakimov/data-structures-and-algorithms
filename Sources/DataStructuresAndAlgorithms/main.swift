@@ -12,4 +12,4 @@ print("Merge sort: \(sortingAlgorithm.mergeSort(n))")
 print("Quick sort: \(sortingAlgorithm.quickSort(n))")
 
 let searchingAlgorithm = SearchingAlgorithm()
-print("Binary search: \(searchingAlgorithm.binarySearch(x, n: sortingAlgorithm.quickSort(n)))")
+print("Binary search: \(searchingAlgorithm.binarySearch(x, sortingAlgorithm.quickSort(n)))")
