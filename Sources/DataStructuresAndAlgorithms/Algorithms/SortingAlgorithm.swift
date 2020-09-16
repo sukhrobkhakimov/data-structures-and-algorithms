@@ -51,6 +51,38 @@ struct SortingAlgorithm {
         return n
     }
 
+    // Shellsort, also known as Shell sort or Shell's method, is an in-place comparison sort. It can be seen as
+    // either a generalization of sorting by exchange (bubble sort) or sorting by insertion (insertion sort).[3]
+    // The method starts by sorting pairs of elements far apart from each other, then progressively reducing the gap
+    // between elements to be compared.
+    // https://en.wikipedia.org/wiki/Shellsort
+    //
+    // Worst complexity: Depends on gap sequence
+    // Average complexity: O(n*log(n)^2) or O(n^(3/2))
+    // Best complexity: O(n)
+    // Space complexity: O(n) (a.k.a memory usage)
+    func shellSort<T: Comparable>(_ n: [T]) -> [T] {
+        let c = n.count
+        if c <= 1 { return n }
+        var n = n
+        var g = c / 2
+        while g > 0 {
+            for (var i, e) in n.enumerated() {
+                while i >= g && n[i - g] > e {
+                    n[i] = n[i - g]
+                    i -= g
+                }
+                n[i] = e
+            }
+            if g == 2 {
+                g = 1
+            } else {
+                g = g * 5 / 11
+            }
+        }
+        return n
+    }
+
     // Bubble sort, sometimes referred to as sinking sort, is a simple sorting algorithm that repeatedly steps
     // through the list, compares adjacent elements and swaps them if they are in the wrong order. The pass through
     // the list is repeated until the list is sorted.
