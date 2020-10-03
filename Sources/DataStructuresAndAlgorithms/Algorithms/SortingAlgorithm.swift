@@ -131,12 +131,12 @@ struct SortingAlgorithm {
     }
 
     private func merge<T: Comparable>(n1: [T], n2: [T]) -> [T] {
-        let size1 = n1.count
-        let size2 = n2.count
+        let s1 = n1.count
+        let s2 = n2.count
         var i = 0
         var j = 0
         var n: [T] = []
-        while i < size1 && j < size2 {
+        while i < s1 && j < s2 {
             if n1[i] > n2[j] {
                 n.append(n2[j])
                 j += 1
@@ -145,11 +145,11 @@ struct SortingAlgorithm {
                 i += 1
             }
         }
-        while i < size1 {
+        while i < s1 {
             n.append(n1[i])
             i += 1
         }
-        while j < size2 {
+        while j < s2 {
             n.append(n2[j])
             j += 1
         }
